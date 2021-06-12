@@ -9,9 +9,10 @@ export default function Home() {
   const cursorRef = useRef();
 
   useEffect(() => {
-    function updateScrollPosition() {
+    function updateScrollPosition(e) {
+      console.log(e);
       // update the scroll position
-      console.log('scroll');
+      cursorRef.current.setAttribute("style", `top: ${e.pageY}px; left: ${e.pageX}px;`);
     }
 
     if (cursorRef && cursorRef.current) {
