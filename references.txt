@@ -4,3 +4,5 @@ https://stackoverflow.com/questions/55965554/how-can-i-use-for-loop-in-styled-co
 https://www.youtube.com/watch?v=C1-hmauMht0
 https://stackoverflow.com/questions/64625050/error-node-sass-version-5-0-0-is-incompatible-with-4-0-0
 https://www.youtube.com/watch?v=rfpRZ2t_BrQ - cursor
+https://dev.to/aprietof/nextjs--styled-components-the-really-simple-guide----101c
+https://worldvectorlogo.com/ru

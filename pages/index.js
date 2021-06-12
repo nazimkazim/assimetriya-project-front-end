@@ -1,12 +1,23 @@
-import styles from '../styles/Home.module.scss';
 import { HeaderComponent } from '../sharedComponents/Header';
+import { Container, ImageContainer } from './index.styles';
+import Image from 'next/image';
+import { homeImages } from './home-images';
+
 
 export default function Home() {
 
   return (
-    <div className={ styles.container }>
+    <Container>
       <HeaderComponent />
-      
-    </div>
+      <ImageContainer>
+        <Image
+          src={ homeImages[3].src }
+          alt="Picture of the author"
+          layout="fill"
+          objectFit="cover"
+        />
+      </ImageContainer>
+    </Container>
+
   );
 }
