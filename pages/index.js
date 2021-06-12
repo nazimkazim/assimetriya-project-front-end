@@ -11,7 +11,7 @@ export default function Home() {
       <HeaderComponent />
       <ImageContainer>
         <Image
-          src={ homeImages[3].src }
+          src={ homeImages[0].src }
           alt="Picture of the author"
           layout="fill"
           objectFit="cover"

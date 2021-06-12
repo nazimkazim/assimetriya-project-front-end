@@ -10,8 +10,10 @@ const Header = styled.div`
   width: 100%;
   height: ${HEADER_HEIGHT};
   z-index:1000;
-  bakcground:transparent;
-  /* background-color: black; */
+  background-color:rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
 `;
 
 const Content = styled.div`
@@ -49,10 +51,14 @@ const Link = styled.li`
   list-style-type: none;
   text-transform:uppercase;
   cursor:pointer;
-  background-color:black;
+  /* background-color:black; */
   color:white;
   padding:3px;
   border-radius:3px;
+  transition: background-color 0.8s;
+  &:hover {
+    background-color:rgba(0, 0, 0, 0.3);
+  }
 `;
 
 export {
