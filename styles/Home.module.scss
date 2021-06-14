@@ -2,3 +2,36 @@
   width: 100vw;
   height: 100vh;
 }
+
+.arrowLeft {
+  cursor: pointer;
+  position:absolute;
+  top:50%;
+  left:30px;
+  font-size: 60px;
+  color: white;
+  /* background-color:red; */
+  z-index:999;
+}
+
+.arrowRight {
+  cursor: pointer;
+  position:absolute;
+  top:50%;
+  right:30px;
+  font-size: 60px;
+  color: white;
+  /* background-color:red; */
+  z-index:999;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 2s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 3s;
+  transform: scale(1.8);
+}
