@@ -1,6 +1,6 @@
 import { HeaderComponent } from '../../sharedComponents/Header/index';
 import { homeImages } from '../home-images';
-import { Container, ImageContainner, ImageItem } from './styles';
+import { Container, ImageContainner, ImageItem, Cover, Type } from './styles';
 import { useRouter } from 'next/router';
 
 
@@ -14,7 +14,10 @@ const Featuredpage = () => {
       <HeaderComponent pathName={ pathName } />
       <ImageContainner>
         { homeImages.map(image => (
-          <ImageItem image={ image.src }></ImageItem>
+          <ImageItem image={ image.src }>
+            <Cover></Cover>
+            <Type>{ image.type }</Type>
+          </ImageItem>
         )) }
       </ImageContainner>
     </Container>

@@ -15,22 +15,42 @@ const ImageContainner = styled.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   min-height:auto;
-  /* background-color:yellow; */
+`;
+
+const Cover = styled.div`
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:0;
+  background-color:rgba(0, 0, 0, 0.95);
+  transition:height 0.3s ease;
+`;
+
+const Type = styled.p`
+  transform:translateY(400px);
+  color:white;
+  font-size:19px;
+  margin-left:20px;
+  transition:transform 0.3s ease;
 `;
 
 const ImageItem = styled.div`
+  position:relative;
   cursor:pointer;
   height:330px;
-  background-color:black;
+  background-color:rgba(0, 0, 0, 0.6);
   background-image:url(${props => props.image});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: background-color 0.8s;
-  &:hover {
-    background-color:black !important;
-    background-image:url('') !important;
+  overflow:hidden;
+  &:hover ${Cover} {
+    height:100%;
+  }
+  &:hover ${Type} {
+    transform:translateY(250px);
   }
 `;
 
-export { Container, ImageContainner, ImageItem };
+export { Container, ImageContainner, ImageItem, Cover, Type };
