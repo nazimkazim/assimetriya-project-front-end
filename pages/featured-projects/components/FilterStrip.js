@@ -1,10 +1,10 @@
 import { Strip, Title, TypesContainer, TypeItem } from './FilterStrip.styles';
 
-const FilterStrip = ({ types }) => {
+const FilterStrip = ({ types, setSelectedType, selectedType }) => {
   return (
     <Strip>
       <Title>Selected Projects</Title>
-      <TypesContainer>{ types.map(type => <TypeItem>{ type }</TypeItem>) }</TypesContainer>
+      <TypesContainer>{ types.map(type => <TypeItem chosen={ selectedType === type } onClick={ () => setSelectedType(type) }>{ type }</TypeItem>) }</TypesContainer>
     </Strip>
   );
 

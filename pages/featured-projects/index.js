@@ -11,19 +11,35 @@ const Featuredpage = () => {
   const pathName = path.pathname;
 
   const [types, setTypes] = useState([]);
+  const [selectedType, setSelectedType] = useState('');
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const allTypes = homeImages.map(item => item.type);
-    const uniqueTypes = [...new Set(allTypes)];
+    const uniqueTypes = ['All', ...new Set(allTypes)];
     setTypes(uniqueTypes);
   }, []);
+
+  useEffect(() => {
+    const projects = [...homeImages];
+    setProjects(projects);
+  }, []);
+
+  useEffect(() => {
+    const projects = [...homeImages];
+    if (selectedType === 'All') {
+      setProjects(projects);
+    }
+    const filteredProjects = projects.filter(project => project.type === selectedType);
+    setProjects(filteredProjects);
+  }, [selectedType]);
 
   return (
     <Container>
       <HeaderComponent pathName={ pathName } />
-      <FilterStrip types={ types } />
+      <FilterStrip types={ types } setSelectedType={ setSelectedType } selectedType={ selectedType } />
       <ImageContainner>
-        { homeImages.map(image => (
+        { projects.map(image => (
           <ImageItem image={ image.src }>
             <Cover></Cover>
             <Name>{ image.name }</Name>

@@ -29,6 +29,12 @@ const TypeItem = styled.a`
   margin-left:25px;
   cursor:pointer;
   color:grey;
+  border-bottom:${({ chosen }) => chosen && '1px solid black'};
+  transition: color 0.8s;
+  transition: border-bottom 0.8s;
+  &: hover {
+  color: black;
+}
 `;
 
 export { Strip, Title, TypesContainer, TypeItem };
