@@ -1,6 +1,6 @@
 import { Strip, Title, TypesContainer, TypeItem } from '../../../styles/filter.strip.styles';
 
-export const FilterStrip = ({ types, setSelectedType, selectedType }) => {
+const FilterStrip = ({ types, setSelectedType, selectedType }) => {
   return (
     <Strip>
       <Title>Selected Projects</Title>
@@ -8,3 +8,5 @@ export const FilterStrip = ({ types, setSelectedType, selectedType }) => {
     </Strip>
   );
 };
+
+export default FilterStrip;
