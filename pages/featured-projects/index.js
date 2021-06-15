@@ -3,7 +3,7 @@ import { HeaderComponent } from '../../sharedComponents/Header/index';
 import { homeImages } from '../../home-images';
 import { Container, ImageContainner, ImageItem, Cover, Type, Name } from '../../styles/featured.projects.styles';
 import { useRouter } from 'next/router';
-import FilterStrip from './components/FilterStrip';
+import FilterStrip from '../../sharedComponents/FilterStrip';
 
 
 const FeaturedPage = () => {

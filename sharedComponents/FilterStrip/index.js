@@ -1,6 +1,7 @@
-import { Strip, Title, TypesContainer, TypeItem } from '../../../styles/filter.strip.styles';
+import { Strip, Title, TypesContainer, TypeItem } from '../../styles/filter.strip.styles.js';
 
 const FilterStrip = ({ types, setSelectedType, selectedType }) => {
+  
   return (
     <Strip>
       <Title>Selected Projects</Title>
