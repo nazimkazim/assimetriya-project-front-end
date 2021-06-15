@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { HeaderComponent } from '../sharedComponents/Header';
-import { Container, ImageContainer, ArrowLeft, ArrowRight } from './index.styles';
+import { Container, ImageContainer } from './index.styles';
 import Image from 'next/image';
 import { homeImages } from './home-images';
 import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';
@@ -26,7 +26,6 @@ export default function Home() {
 
   return (
     <Container>
-
       <HeaderComponent />
       <VscChevronLeft className={ styles.arrowLeft } onClick={ prevSlide } />
       <VscChevronRight className={ styles.arrowRight } onClick={ nextSlide } />

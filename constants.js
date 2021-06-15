@@ -1,1 +1,6 @@
-export const HEADER_HEIGHT = '133px'
+export const MEDIA_QUERY_BREAKPOINTS = {
+  "mobile": "480px",
+  "tablet": "768px",
+  "laptop": "1024px",
+  "desktop": "1200px"
+}

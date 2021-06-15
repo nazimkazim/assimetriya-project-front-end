@@ -7,7 +7,7 @@ export const Links = [
     id: uuidv4()
   }, {
     name: 'selected projects',
-    link: '/selected-projects',
+    link: '/featured-projects',
     id: uuidv4()
   }, {
     name: 'about us',

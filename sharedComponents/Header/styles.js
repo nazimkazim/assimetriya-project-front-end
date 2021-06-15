@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { HEADER_HEIGHT } from '../../constants';
+import { MEDIA_QUERY_BREAKPOINTS } from '../../constants';
 
 const Content = styled.div`
   position:absolute !important;
-  background-color:rgba(0, 0, 0, 0.3);
+  background-color: ${props => props && props.pathName === '/featured-projects' ? 'transparent' : 'rgba(0, 0, 0, 0.3)'};
   top:0;
   left:0;
   display: flex;
@@ -19,7 +20,7 @@ const Content = styled.div`
     box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
   }
   /* background-color: blue; */
-  @media (max-width: 414px) {
+  @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     display: flex;
     flex-direction:column;
     width: 100%;
@@ -30,18 +31,18 @@ const Content = styled.div`
 `;
 
 const Logo = styled.div`;
+/* background-color: red; */
 display: flex;
 justify-content: center;
 align-items: center;
 flex: 0.3;
-/* background-color: red; */
 height: 100%;
+padding:3px;
   > img {
-  width: 200px;
-  margin-top:10px;
+  width: 100px;
 }
 
-@media(max-width: 414px) {
+@media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   img {
     width: 50px;
   }
@@ -55,12 +56,12 @@ height: 100%;
 const Menu = styled.div`;
 display: flex;
 padding: 3px;
-justify-content: space-between;
+justify-content: space-around;
 align-items: center;
-flex: 0.6;
+flex: 0.5;
 /* background-color: lightblue; */
 height: 100%;
-@media(max-width: 414px) {
+@media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   flex-direction: column;
   justify-content: space-between;
   display:${props => props.openMenu ? 'flex' : 'none'};
@@ -69,12 +70,12 @@ height: 100%;
 }
 `;
 
-const Link = styled.li`;
+const LinkItem = styled.li`;
 list-style-type: none;
 text-transform: uppercase;
 cursor: pointer;
 /* background-color:black; */
-color: white;
+color: ${props => props.pathName === '/featured-projects' ? 'black' : 'white'};
 padding: 3px;
 border-radius: 3px;
 transition: background-color 0.8s;
@@ -84,5 +85,5 @@ transition: background-color 0.8s;
 `;
 
 export {
-  Content, Logo, Menu, Link
+  Content, Logo, Menu, LinkItem
 };
