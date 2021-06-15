@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MAIN_WIDTH, MEDIA_QUERY_BREAKPOINTS } from '../../constants';
+import { MAIN_WIDTH, MEDIA_QUERY_BREAKPOINTS } from '../constants';
 
 const Container = styled.div`
   display:flex;

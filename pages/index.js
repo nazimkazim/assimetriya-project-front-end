@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { HeaderComponent } from '../sharedComponents/Header';
-import { Container, ImageContainer } from './styles';
+import { Container, ImageContainer } from '../styles/home.page.styles';
 import Image from 'next/image';
 import { homeImages } from './home-images';
 import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';

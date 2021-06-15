@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MAIN_WIDTH } from '../../../constants';
+import { MAIN_WIDTH } from '../constants';
 
 const Strip = styled.div`
   display:flex;
