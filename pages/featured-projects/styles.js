@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MAIN_WIDTH } from '../../constants';
+import { MAIN_WIDTH, MEDIA_QUERY_BREAKPOINTS } from '../../constants';
 
 const Container = styled.div`
   display:flex;
@@ -16,6 +16,10 @@ const ImageContainner = styled.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   min-height:auto;
+  @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
+    grid-template-columns:repeat(1,1fr);
+  }
+
 `;
 
 const Cover = styled.div`

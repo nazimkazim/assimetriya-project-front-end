@@ -6,3 +6,4 @@ export const MEDIA_QUERY_BREAKPOINTS = {
 };
 
 export const MAIN_WIDTH = '1200px';
+export const HEADER_HEIGHT = '88px';

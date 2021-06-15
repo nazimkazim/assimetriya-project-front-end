@@ -11,7 +11,7 @@ const Featuredpage = () => {
   const pathName = path.pathname;
 
   const [types, setTypes] = useState([]);
-  const [selectedType, setSelectedType] = useState('');
+  const [selectedType, setSelectedType] = useState('All');
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -29,9 +29,11 @@ const Featuredpage = () => {
     const projects = [...homeImages];
     if (selectedType === 'All') {
       setProjects(projects);
+    } else {
+      const filteredProjects = projects.filter(project => project.type === selectedType);
+      setProjects(filteredProjects);
     }
-    const filteredProjects = projects.filter(project => project.type === selectedType);
-    setProjects(filteredProjects);
+
   }, [selectedType]);
 
   return (
