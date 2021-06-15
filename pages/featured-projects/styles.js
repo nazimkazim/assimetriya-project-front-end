@@ -1,17 +1,18 @@
 import styled from 'styled-components';
+import { MAIN_WIDTH } from '../../constants';
 
 const Container = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
   position:relative;
-  width:100vw;
+  max-width:100vw;
   height:100vh;
   background-color:#FFFFFF;
 `;
 
 const ImageContainner = styled.div`
-  width:1200px;
+  width:${MAIN_WIDTH};
   display:grid;
   grid-template-columns:repeat(3,1fr);
   min-height:auto;

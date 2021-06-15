@@ -3,4 +3,6 @@ export const MEDIA_QUERY_BREAKPOINTS = {
   "tablet": "768px",
   "laptop": "1024px",
   "desktop": "1200px"
-}
+};
+
+export const MAIN_WIDTH = '1200px';

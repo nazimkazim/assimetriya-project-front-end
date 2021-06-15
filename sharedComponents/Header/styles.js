@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { HEADER_HEIGHT } from '../../constants';
-import { MEDIA_QUERY_BREAKPOINTS } from '../../constants';
+import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH } from '../../constants';
 
 const Content = styled.div`
   position:${props => props && props.pathName === '/featured-projects' ? 'relative' : 'absolute'};
@@ -10,7 +10,7 @@ const Content = styled.div`
   height: ${HEADER_HEIGHT};
   justify-content: center;
   align-items: center;
-  width: 1200px;
+  width: ${MAIN_WIDTH};
   /* background-color: blue; */
   @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     display: flex;
@@ -25,12 +25,12 @@ const Content = styled.div`
 const Logo = styled.div`;
 /* background-color: red; */
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 flex: 0.4;
 height: 100%;
 padding:3px;
-  > img {
+& > img {
   width: 100px;
 }
 
