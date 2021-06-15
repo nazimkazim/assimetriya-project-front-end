@@ -17,6 +17,5 @@ export const HeaderComponent = ({ pathName }) => {
         )) }
       </Menu>
     </Content>
-
   );
 };
