@@ -35,6 +35,14 @@ const Type = styled.p`
   transition:transform 0.3s ease;
 `;
 
+const Name = styled.p`
+  transform:translateY(400px);
+  color:white;
+  font-size:24px;
+  margin-left:20px;
+  transition:transform 0.3s ease;
+`;
+
 const ImageItem = styled.div`
   position:relative;
   cursor:pointer;
@@ -51,6 +59,9 @@ const ImageItem = styled.div`
   &:hover ${Type} {
     transform:translateY(250px);
   }
+  &:hover ${Name} {
+    transform:translateY(240px);
+  }
 `;
 
-export { Container, ImageContainner, ImageItem, Cover, Type };
+export { Container, ImageContainner, ImageItem, Cover, Type, Name };

@@ -5,20 +5,12 @@ import { MEDIA_QUERY_BREAKPOINTS } from '../../constants';
 const Content = styled.div`
   position:${props => props && props.pathName === '/featured-projects' ? 'relative' : 'absolute'};
   background-color: ${props => props && props.pathName === '/featured-projects' ? 'transparent' : 'rgba(0, 0, 0, 0.3)'};
-  top:0;
-  left:0;
   display: flex;
   z-index:1000;
   height: ${HEADER_HEIGHT};
   justify-content: center;
   align-items: center;
-  width: 100%;
-  transition:box-shadow 0.8s;
-  &:hover {
-    -webkit-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
-  }
+  width: 1200px;
   /* background-color: blue; */
   @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     display: flex;
@@ -35,7 +27,7 @@ const Logo = styled.div`;
 display: flex;
 justify-content: center;
 align-items: center;
-flex: 0.3;
+flex: 0.4;
 height: 100%;
 padding:3px;
   > img {
@@ -56,9 +48,9 @@ padding:3px;
 const Menu = styled.div`;
 display: flex;
 padding: 3px;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
-flex: 0.5;
+flex: 0.6;
 /* background-color: lightblue; */
 height: 100%;
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {

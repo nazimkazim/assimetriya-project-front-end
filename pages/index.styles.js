@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 
 const Container = styled.div`
+  display:flex;
+  justify-content:center;
   position:relative;
   width:100vw;
   height:100vh;
@@ -9,7 +11,7 @@ const Container = styled.div`
 
 const ImageContainer = styled.div`
   width:100vw;
-  background-color:yellow;
+  background-color:white;
 `;
 
 export {
