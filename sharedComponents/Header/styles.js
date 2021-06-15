@@ -3,7 +3,7 @@ import { HEADER_HEIGHT } from '../../constants';
 import { MEDIA_QUERY_BREAKPOINTS } from '../../constants';
 
 const Content = styled.div`
-  position:absolute !important;
+  position:${props => props && props.pathName === '/featured-projects' ? 'relative' : 'absolute'};
   background-color: ${props => props && props.pathName === '/featured-projects' ? 'transparent' : 'rgba(0, 0, 0, 0.3)'};
   top:0;
   left:0;
