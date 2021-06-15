@@ -21,13 +21,15 @@ const ImageContainner = styled.div`
 const ImageItem = styled.div`
   cursor:pointer;
   height:330px;
-  background-color:white;
+  background-color:black;
   background-image:url(${props => props.image});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: background-color 0.8s;
   &:hover {
     background-color:black !important;
+    background-image:url('') !important;
   }
 `;
 
