@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { HeaderComponent } from '../../sharedComponents/Header/index';
-import { homeImages } from '../home-images';
+import { homeImages } from '../../home-images';
 import { Container, ImageContainner, ImageItem, Cover, Type, Name } from '../../styles/featured.projects.styles';
 import { useRouter } from 'next/router';
 import FilterStrip from './components/FilterStrip';
