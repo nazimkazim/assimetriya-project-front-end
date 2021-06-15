@@ -43,12 +43,6 @@ export default function Home() {
             </div>
           );
         }) }
-        {/* <Image
-          src={ homeImages[image].src }
-          alt="Picture of the author"
-          layout="fill"
-          objectFit="cover"
-        /> */}
       </ImageContainer>
     </Container>
 

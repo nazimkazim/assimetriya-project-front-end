@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import FilterStrip from './components/FilterStrip';
 
 
-const Featuredpage = () => {
+const FeaturedPage = () => {
   const path = useRouter();
   const pathName = path.pathname;
 
@@ -41,8 +41,8 @@ const Featuredpage = () => {
       <HeaderComponent pathName={ pathName } />
       <FilterStrip types={ types } setSelectedType={ setSelectedType } selectedType={ selectedType } />
       <ImageContainner>
-        { projects.map(image => (
-          <ImageItem image={ image.src }>
+        { projects.map((image, index) => (
+          <ImageItem image={ image.src } key={ index }>
             <Cover></Cover>
             <Name>{ image.name }</Name>
             <Type>{ image.type }</Type>
@@ -53,4 +53,4 @@ const Featuredpage = () => {
   );
 };
 
-export default Featuredpage;
+export default FeaturedPage;
