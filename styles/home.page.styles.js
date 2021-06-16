@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { motion } from 'framer-motion';
 
 const Container = styled.div`
   display:flex;
@@ -9,7 +9,7 @@ const Container = styled.div`
   height:100vh;
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled(motion.div)`
   width:100vw;
   background-color:white;
 `;

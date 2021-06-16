@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { MAIN_WIDTH, MEDIA_QUERY_BREAKPOINTS } from '../constants';
+import { motion } from 'framer-motion';
 
 const Container = styled.div`
   display:flex;
@@ -11,7 +12,7 @@ const Container = styled.div`
   background-color:#FFFFFF;
 `;
 
-const ImageContainner = styled.div`
+const ImageContainer = styled(motion.div)`
   width:${MAIN_WIDTH};
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -49,7 +50,7 @@ const Name = styled.p`
   transition:transform 0.3s ease;
 `;
 
-const ImageItem = styled.div`
+const ImageItem = styled(motion.div)`
   position:relative;
   cursor:pointer;
   height:330px;
@@ -70,4 +71,4 @@ const ImageItem = styled.div`
   }
 `;
 
-export { Container, ImageContainner, ImageItem, Cover, Type, Name };
+export { Container, ImageContainer, ImageItem, Cover, Type, Name };

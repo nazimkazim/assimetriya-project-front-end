@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { HeaderComponent } from '../../sharedComponents/Header/index';
 import { homeImages } from '../../home-images';
-import { Container, ImageContainner, ImageItem, Cover, Type, Name } from '../../styles/featured.projects.styles';
+import { Container, ImageContainer, ImageItem, Cover, Type, Name } from '../../styles/featured.projects.styles';
 import { useRouter } from 'next/router';
 import FilterStrip from '../../sharedComponents/FilterStrip';
-
 
 const FeaturedPage = () => {
   const path = useRouter();
@@ -40,15 +39,35 @@ const FeaturedPage = () => {
     <Container>
       <HeaderComponent pathName={ pathName } />
       <FilterStrip types={ types } setSelectedType={ setSelectedType } selectedType={ selectedType } />
-      <ImageContainner>
+      <ImageContainer
+        initial={ { x: -100, opacity: 0 } }
+        animate={ {
+          scale: 1,
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 1
+          }
+        } }
+      >
         { projects.map((image, index) => (
-          <ImageItem image={ image.src } key={ index }>
+          <ImageItem
+            initial={ { scale: 0.8, opacity: 0 } }
+            animate={ {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                duration: 1.5
+              }
+            } }
+            image={ image.src }
+            key={ index }>
             <Cover></Cover>
             <Name>{ image.name }</Name>
             <Type>{ image.type }</Type>
           </ImageItem>
         )) }
-      </ImageContainner>
+      </ImageContainer>
     </Container>
   );
 };
