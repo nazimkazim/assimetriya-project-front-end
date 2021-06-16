@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Content, Logo, Menu, LinkItem } from './styles';
 import { Links } from './Link';
 import Link from 'next/link';
-import { GiHamburgerMenu } from 'react-icons/Gi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import Media from 'react-media';
 import { MEDIA_QUERY_BREAKPOINTS } from '../../constants';
 
