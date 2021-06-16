@@ -3,7 +3,7 @@ import { HEADER_HEIGHT } from '../../constants';
 import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH } from '../../constants';
 
 const Content = styled.div`
-  position:${props => props && props.pathName === '/featured-projects' ? 'relative' : 'absolute'};
+  position:${props => props && props.pathName === '/featured-projects' ? 'absolute' : 'absolute'};
   background-color: ${props => props && props.pathName === '/featured-projects' ? 'transparent' : 'rgba(0, 0, 0, 0.3)'};
   display: flex;
   z-index:1000;
@@ -15,10 +15,10 @@ const Content = styled.div`
   @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     display: flex;
     flex-direction:column;
+    justify-content:flex-start;
     width: 100%;
     transition:height 0.8s;
     height:${props => props.openMenu ? '100vh' : '10vh'};
-    justify-content: flex-start;
   }
 `;
 
@@ -40,8 +40,8 @@ padding:3px;
   }
   align-items: center;
   width:100%;
-  justify-content:center;
-  flex:0.1;
+  justify-content:space-between;
+  flex:0.01;
 }
 `;
 
@@ -55,10 +55,12 @@ flex: 0.6;
 height: 100%;
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   display:${props => props.openMenu ? 'flex' : 'none'};
   transition:display 0.8s 1s;
   width:100%;
+  background-color:${props => props && props.pathName === '/featured-projects' ? 'white' : 'transparent'};
+  flex: 1;
 }
 `;
 

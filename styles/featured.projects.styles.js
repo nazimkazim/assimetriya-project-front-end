@@ -18,6 +18,7 @@ const ImageContainner = styled.div`
   min-height:auto;
   @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     grid-template-columns:repeat(1,1fr);
+    width:100%;
   }
 
 `;
