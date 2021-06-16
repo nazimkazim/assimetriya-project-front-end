@@ -35,3 +35,12 @@
   transition-duration: 3s;
   transform: scale(1.8);
 }
+
+@media (max-width: 480px) {
+  .arrowLeft {
+    left:10px;
+  }
+  .arrowRight {
+    right:10px;
+  }
+}
