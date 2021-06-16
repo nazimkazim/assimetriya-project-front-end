@@ -7,3 +7,4 @@ https://www.youtube.com/watch?v=rfpRZ2t_BrQ - cursor
 https://dev.to/aprietof/nextjs--styled-components-the-really-simple-guide----101c
 https://worldvectorlogo.com/ru
 https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/
+https://pngtree.com/free-logo-png/3

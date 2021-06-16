@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { homeImages } from '../home-images';
 import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';
 import styles from '../styles/Home.module.scss';
+import { AnimatePresence, motion } from "framer-motion";
+
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -28,21 +30,28 @@ export default function Home() {
       <VscChevronLeft className={ styles.arrowLeft } onClick={ prevSlide } />
       <VscChevronRight className={ styles.arrowRight } onClick={ nextSlide } />
       <ImageContainer>
-        { homeImages.map((slide, index) => {
-          return (
-            <div key={ index }>
-              { index === current && <Image
-                src={ slide.src }
-                alt="Picture of the author"
-                layout="fill"
-                objectFit="cover"
-              /> }
+        <AnimatePresence>
+          { homeImages.map((slide, index) => {
+            return (
+              <motion.div
+                key={ index }
+                initial={ { x: 300, opacity: 0 } }
+                animate={ { x: 0, opacity: 1 } }
+                exit={ { x: -300, opacity: 0 } }
+              >
+                { index === current && <Image
+                  src={ slide.src }
+                  alt="Picture of the author"
+                  layout="fill"
+                  objectFit="cover"
+                /> }
 
-            </div>
-          );
-        }) }
+              </motion.div>
+            );
+          }) }
+        </AnimatePresence>
       </ImageContainer>
-    </Container>
+    </Container >
 
   );
 }
