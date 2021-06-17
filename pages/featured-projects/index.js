@@ -51,8 +51,8 @@ const FeaturedPage = () => {
           }
         } }
       >
-        { projects.map((image, index) => (
-          <Link href={ `/portfolio/${[image.id]}.js` }>
+        { projects.map((image) => (
+          <Link href={ `/portfolio/${[image.id]}` }>
             <ImageItem
               initial={ { scale: 0.8, opacity: 0 } }
               animate={ {
