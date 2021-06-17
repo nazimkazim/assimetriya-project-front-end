@@ -3,8 +3,8 @@ import { HEADER_HEIGHT } from '../../constants';
 import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH } from '../../constants';
 
 const Content = styled.div`
-  position:${props => props && props.pathName === '/featured-projects' ? 'absolute' : 'absolute'};
-  background-color: ${props => props && props.pathName === '/featured-projects' ? 'transparent' : 'rgba(0, 0, 0, 0.3)'};
+  position:absolute;
+  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'transparent'};
   display: flex;
   z-index:1000;
   height: ${HEADER_HEIGHT};
@@ -59,7 +59,7 @@ height: 100%;
   display:${props => props.openMenu ? 'flex' : 'none'};
   transition:display 0.8s 1s;
   width:100%;
-  background-color:${props => props && props.pathName === '/featured-projects' ? 'white' : 'transparent'};
+  background-color:${props => props && props.pathName === '/' ? 'transparent' : 'white'};
   flex: 1;
 }
 `;
@@ -69,7 +69,7 @@ list-style-type: none;
 text-transform: uppercase;
 cursor: pointer;
 /* background-color:black; */
-color: ${props => props.pathName === '/featured-projects' ? 'black' : 'white'};
+color: ${props => props.pathName === '/' ? 'white' : 'black'};
 padding: 3px;
 border-radius: 3px;
 border-bottom:${({ chosen }) => chosen ? '1px solid gray' : ''};
