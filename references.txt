@@ -8,3 +8,4 @@ https://dev.to/aprietof/nextjs--styled-components-the-really-simple-guide----101
 https://worldvectorlogo.com/ru
 https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/
 https://pngtree.com/free-logo-png/3
+https://developers.google.com/speed/pagespeed/insights/

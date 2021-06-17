@@ -72,6 +72,7 @@ cursor: pointer;
 color: ${props => props.pathName === '/featured-projects' ? 'black' : 'white'};
 padding: 3px;
 border-radius: 3px;
+border-bottom:${({ chosen }) => chosen ? '1px solid gray' : ''};
 transition: background-color 0.8s;
   &: hover {
   background-color: rgba(0, 0, 0, 0.3);

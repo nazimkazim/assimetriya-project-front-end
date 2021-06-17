@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { HeaderComponent } from '../sharedComponents/Header';
 import { Container, ImageContainer } from '../styles/home.page.styles';
 import Image from 'next/image';

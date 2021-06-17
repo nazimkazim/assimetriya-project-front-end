@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react';
 import { HeaderComponent } from '../../sharedComponents/Header/index';
 import { homeImages } from '../../home-images';
 import { Container, ImageContainer, ImageItem, Cover, Type, Name } from '../../styles/featured.projects.styles';
-import { useRouter } from 'next/router';
 import FilterStrip from '../../sharedComponents/FilterStrip';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const FeaturedPage = () => {
-  const path = useRouter();
-  const pathName = path.pathname;
 
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('All');
   const [projects, setProjects] = useState([]);
+  const router = useRouter();
+  const { pid } = router.query;
 
   useEffect(() => {
     const allTypes = homeImages.map(item => item.type);
@@ -37,7 +38,7 @@ const FeaturedPage = () => {
 
   return (
     <Container>
-      <HeaderComponent pathName={ pathName } />
+      <HeaderComponent />
       <FilterStrip types={ types } setSelectedType={ setSelectedType } selectedType={ selectedType } />
       <ImageContainer
         initial={ { x: -100, opacity: 0 } }
@@ -51,21 +52,23 @@ const FeaturedPage = () => {
         } }
       >
         { projects.map((image, index) => (
-          <ImageItem
-            initial={ { scale: 0.8, opacity: 0 } }
-            animate={ {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                duration: 1.5
-              }
-            } }
-            image={ image.src }
-            key={ index }>
-            <Cover></Cover>
-            <Name>{ image.name }</Name>
-            <Type>{ image.type }</Type>
-          </ImageItem>
+          <Link href={ `/portfolio/${[image.id]}.js` }>
+            <ImageItem
+              initial={ { scale: 0.8, opacity: 0 } }
+              animate={ {
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  duration: 1.5
+                }
+              } }
+              image={ image.src }
+              key={ image.id }>
+              <Cover></Cover>
+              <Name>{ image.name }</Name>
+              <Type>{ image.type }</Type>
+            </ImageItem>
+          </Link>
         )) }
       </ImageContainer>
     </Container>

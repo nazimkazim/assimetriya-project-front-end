@@ -5,11 +5,14 @@ import Link from 'next/link';
 import Media from 'react-media';
 import { MEDIA_QUERY_BREAKPOINTS } from '../../constants';
 import { VscChromeClose, VscMenu } from 'react-icons/vsc';
+import { useRouter } from 'next/router';
 
 
 
-export const HeaderComponent = ({ pathName }) => {
+export const HeaderComponent = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const path = useRouter();
+  const pathName = path.pathname;
 
   useEffect(() => { return () => { }; }, []);
 
@@ -33,7 +36,15 @@ export const HeaderComponent = ({ pathName }) => {
 
       <Menu openMenu={ openMenu } pathName={ pathName }>
         { Links.map(item => (
-          <LinkItem pathName={ pathName } key={ item.id }><Link href={ item.link } >{ item.name }</Link></LinkItem>
+          <LinkItem
+            pathName={ pathName }
+            key={ item.id }
+            chosen={ pathName === item.link }
+          >
+            <Link href={ item.link }>
+              { item.name }
+            </Link>
+          </LinkItem>
         )) }
       </Menu>
 
