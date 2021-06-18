@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { homeImages } from '../home-images';
 import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';
 import styles from '../styles/Home.module.scss';
-
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -34,13 +34,23 @@ export default function Home() {
           return (
             <div key={ index }>
               { index === current && (
-                <Image
-                  src={ slide.src }
-                  alt={ slide.name }
-                  layout="fill"
-                  objectFit="cover"
-                />
-              ) }
+                <motion.div
+                  initial={ { opacity: 0.6 } }
+                  animate={ { opacity: 1 } }
+                  transition={ {
+                    delay: 0.3,
+                    duration: 0.5
+                  } }
+                >
+                  <Image
+                    src={ slide.src }
+                    alt={ slide.name }
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </motion.div>
+              )
+              }
             </div>
           );
         }) }

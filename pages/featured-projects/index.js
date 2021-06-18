@@ -11,8 +11,6 @@ const FeaturedPage = () => {
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('All');
   const [projects, setProjects] = useState([]);
-  const router = useRouter();
-  const { pid } = router.query;
 
   useEffect(() => {
     const allTypes = homeImages.map(item => item.type);
