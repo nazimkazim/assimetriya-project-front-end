@@ -16,13 +16,12 @@ const ImageContainer = styled(motion.div)`
   width:${MAIN_WIDTH};
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  padding:6px;
   min-height:auto;
+  padding-bottom:40px;
   @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     grid-template-columns:repeat(1,1fr);
     width:100%;
   }
-
 `;
 
 const Cover = styled.div`
