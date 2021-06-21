@@ -1,34 +1,51 @@
 import { useEffect, useState } from 'react';
 import { HeaderComponent } from '../../sharedComponents/Header/index';
-import { homeImages } from '../../home-images';
 import { Container, ImageContainer, ImageItem, Cover, Type, Name } from '../../styles/featured.projects.styles';
 import FilterStrip from '../../sharedComponents/FilterStrip';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { createClient } from 'contentful';
 
-const FeaturedPage = () => {
 
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY
+  });
+
+  const res = await client.getEntries({ content_type: 'asymetriya' });
+
+  return {
+    props: {
+      c_projects: res.items
+    }
+  };
+}
+
+const FeaturedPage = ({ c_projects }) => {
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('All');
   const [projects, setProjects] = useState([]);
 
+  //console.log(c_projects);
+
   useEffect(() => {
-    const allTypes = homeImages.map(item => item.type);
+    const allTypes = c_projects.map(item => item.fields.projectType);
     const uniqueTypes = ['All', ...new Set(allTypes)];
     setTypes(uniqueTypes);
   }, []);
 
   useEffect(() => {
-    const projects = [...homeImages];
+    const projects = [...c_projects];
     setProjects(projects);
   }, []);
 
   useEffect(() => {
-    const projects = [...homeImages];
+    const projects = [...c_projects];
     if (selectedType === 'All') {
       setProjects(projects);
     } else {
-      const filteredProjects = projects.filter(project => project.type === selectedType);
+      const filteredProjects = projects.filter(project => project.fields.projectType === selectedType);
       setProjects(filteredProjects);
     }
 
@@ -49,8 +66,8 @@ const FeaturedPage = () => {
           }
         } }
       >
-        { projects.map((image) => (
-          <Link href={ `/portfolio/${[image.id]}` }>
+        { projects.length > 0 && projects.map((image) => (
+          <Link href={ `/portfolio/${[image.sys.id]}` }>
             <ImageItem
               initial={ { scale: 0.8, opacity: 0 } }
               animate={ {
@@ -60,11 +77,11 @@ const FeaturedPage = () => {
                   duration: 1.5
                 }
               } }
-              image={ image.src }
-              key={ image.id }>
+              image={ image.fields.mainPicture.fields.file.url }
+              key={ image.sys.id }>
               <Cover></Cover>
-              <Name>{ image.name }</Name>
-              <Type>{ image.type }</Type>
+              <Name>{ image.fields.title }</Name>
+              <Type>{ image.fields.projectType }</Type>
             </ImageItem>
           </Link>
         )) }

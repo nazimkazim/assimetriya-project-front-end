@@ -2,17 +2,35 @@ import { useState } from 'react';
 import { HeaderComponent } from '../sharedComponents/Header';
 import { Container, ImageContainer } from '../styles/home.page.styles';
 import Image from 'next/image';
-import { homeImages } from '../home-images';
+import { createClient } from 'contentful';
 import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';
 import styles from '../styles/Home.module.scss';
 import { motion } from 'framer-motion';
 
-export default function Home() {
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY
+  });
+
+  const res = await client.getEntries({ content_type: 'asymetriya' });
+
+  return {
+    props: {
+      c_projects: res.items
+    }
+  };
+}
+
+export default function Home({ c_projects }) {
   const [current, setCurrent] = useState(0);
-  const length = homeImages.length;
+
+  const length = c_projects && c_projects.length;
+
+  console.log(c_projects);
 
 
-  if (!Array.isArray(homeImages) || homeImages.length <= 0) {
+  if (!Array.isArray(c_projects) || c_projects.length <= 0) {
     return null;
   }
 
@@ -30,7 +48,7 @@ export default function Home() {
       <VscChevronLeft className={ styles.arrowLeft } onClick={ prevSlide } />
       <VscChevronRight className={ styles.arrowRight } onClick={ nextSlide } />
       <ImageContainer>
-        { homeImages.map((slide, index) => {
+        { c_projects.map((slide, index) => {
           return (
             <div key={ index }>
               { index === current && (
@@ -43,7 +61,7 @@ export default function Home() {
                   } }
                 >
                   <Image
-                    src={ slide.src }
+                    src={ `https:${slide.fields.mainPicture.fields.file.url}` }
                     alt={ slide.name }
                     layout="fill"
                     objectFit="cover"

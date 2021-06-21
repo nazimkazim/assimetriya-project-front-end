@@ -33,7 +33,7 @@ const Content = styled.div`
 `;
 
 const Logo = styled.div`;
-/* background-color: red; */
+cursor:pointer;
 display: flex;
 justify-content: flex-start;
 align-items: center;
