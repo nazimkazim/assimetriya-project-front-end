@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { MAIN_WIDTH, MEDIA_QUERY_BREAKPOINTS } from '../constants';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Container = styled.div`
   display:flex;
@@ -17,6 +18,7 @@ const ImageContainer = styled(motion.div)`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   min-height:auto;
+  gap:10px;
   padding-bottom:40px;
   @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     grid-template-columns:repeat(1,1fr);

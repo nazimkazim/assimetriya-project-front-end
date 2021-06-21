@@ -7,8 +7,6 @@ import { MEDIA_QUERY_BREAKPOINTS } from '../../constants';
 import { VscChromeClose, VscMenu } from 'react-icons/vsc';
 import { useRouter } from 'next/router';
 
-
-
 export const HeaderComponent = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const path = useRouter();
@@ -31,9 +29,12 @@ export const HeaderComponent = () => {
     <Container pathName={ pathName }>
       <Content openMenu={ openMenu } pathName={ pathName }>
         <Logo>
-          <img src="https://res.cloudinary.com/nzmai/image/upload/v1623471885/assimetriya-project/logo.svg" />
+          <Link href={ "/" }>
+            <img src="https://res.cloudinary.com/nzmai/image/upload/v1623471885/assimetriya-project/logo.svg" />
+          </Link>
           <Media queries={ { small: `(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile})` } }>{ matches => matches.small && callMatches(matches.small) }</Media>
         </Logo>
+
         <Menu openMenu={ openMenu } pathName={ pathName }>
           { Links.map(item => (
             <LinkItem
