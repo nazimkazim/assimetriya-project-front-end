@@ -24,13 +24,6 @@ const Portfolio = ({ homeImages }) => {
     setProject(project);
   }, []);
 
-  console.log(project);
-
-
-  /* console.log(project);
-  console.log(pid);
-  console.log(homeImages); */
-
   return (
     <Container>
       <HeaderComponent />
@@ -45,12 +38,6 @@ const Portfolio = ({ homeImages }) => {
       </ProjectInfoContainer>
     </Container>
   );
-};
-
-Portfolio.getInitialProps = async function () {
-  return {
-    homeImages
-  };
 };
 
 export default Portfolio;
