@@ -1,13 +1,23 @@
 import styled from "styled-components";
-import { HEADER_HEIGHT } from '../../constants';
-import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH } from '../../constants';
+import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH, HEADER_HEIGHT } from '../../constants';
 
-const Content = styled.div`
+
+const Container = styled.div`
   position:absolute;
-  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'transparent'};
+  top:0;
+  left:0;
   display: flex;
+  flex-direction:row;
+  justify-content:center;
+  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.1)' : 'transparent'};
   z-index:1000;
   height: ${HEADER_HEIGHT};
+  width:100%;
+`;
+
+const Content = styled.div`
+  display: flex;
+  height:100%;
   justify-content: center;
   align-items: center;
   width: ${MAIN_WIDTH};
@@ -80,5 +90,5 @@ transition: background-color 0.8s;
 `;
 
 export {
-  Content, Logo, Menu, LinkItem
+  Content, Logo, Menu, LinkItem, Container
 };

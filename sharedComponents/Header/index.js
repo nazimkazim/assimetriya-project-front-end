@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Content, Logo, Menu, LinkItem } from './styles';
+import { Content, Logo, Menu, LinkItem, Container } from './styles';
 import { Links } from './Link';
 import Link from 'next/link';
 import Media from 'react-media';
@@ -28,26 +28,26 @@ export const HeaderComponent = () => {
   };
 
   return (
-    <Content openMenu={ openMenu } pathName={ pathName }>
-      <Logo>
-        <img src="https://res.cloudinary.com/nzmai/image/upload/v1623471885/assimetriya-project/logo.svg" />
-        <Media queries={ { small: `(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile})` } }>{ matches => matches.small && callMatches(matches.small) }</Media>
-      </Logo>
-
-      <Menu openMenu={ openMenu } pathName={ pathName }>
-        { Links.map(item => (
-          <LinkItem
-            pathName={ pathName }
-            key={ item.id }
-            chosen={ pathName === item.link }
-          >
-            <Link href={ item.link }>
-              { item.name }
-            </Link>
-          </LinkItem>
-        )) }
-      </Menu>
-
-    </Content >
+    <Container pathName={ pathName }>
+      <Content openMenu={ openMenu } pathName={ pathName }>
+        <Logo>
+          <img src="https://res.cloudinary.com/nzmai/image/upload/v1623471885/assimetriya-project/logo.svg" />
+          <Media queries={ { small: `(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile})` } }>{ matches => matches.small && callMatches(matches.small) }</Media>
+        </Logo>
+        <Menu openMenu={ openMenu } pathName={ pathName }>
+          { Links.map(item => (
+            <LinkItem
+              pathName={ pathName }
+              key={ item.id }
+              chosen={ pathName === item.link }
+            >
+              <Link href={ item.link }>
+                { item.name }
+              </Link>
+            </LinkItem>
+          )) }
+        </Menu>
+      </Content >
+    </Container>
   );
 };
