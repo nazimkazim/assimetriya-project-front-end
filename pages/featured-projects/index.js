@@ -4,7 +4,7 @@ import { Container, ImageContainer, ImageItem, Cover, Type, Name } from '../../s
 import FilterStrip from '../../sharedComponents/FilterStrip';
 import Link from 'next/link';
 import { createClient } from 'contentful';
-
+import { PROJECTS_CONTENT_TYPE } from '../../constants';
 
 
 export async function getStaticProps() {
@@ -13,7 +13,7 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY
   });
 
-  const res = await client.getEntries({ content_type: 'asymetriya' });
+  const res = await client.getEntries({ content_type: PROJECTS_CONTENT_TYPE });
 
   return {
     props: {

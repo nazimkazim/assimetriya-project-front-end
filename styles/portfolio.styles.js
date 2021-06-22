@@ -33,3 +33,9 @@ export const ProjectLocation = styled.h3`
   font-size:16px;
   color:#777777;
 `;
+
+export const ProjectDescription = styled.p`
+  margin-top:40px;
+  font-size:20px;
+  color:#777777;
+`;

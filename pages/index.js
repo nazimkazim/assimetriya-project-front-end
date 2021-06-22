@@ -6,6 +6,7 @@ import { createClient } from 'contentful';
 import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';
 import styles from '../styles/Home.module.scss';
 import { motion } from 'framer-motion';
+import { PROJECTS_CONTENT_TYPE } from '../constants';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -13,7 +14,7 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY
   });
 
-  const res = await client.getEntries({ content_type: 'asymetriya' });
+  const res = await client.getEntries({ content_type: PROJECTS_CONTENT_TYPE });
 
   return {
     props: {
