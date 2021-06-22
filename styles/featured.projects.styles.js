@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { MAIN_WIDTH, MEDIA_QUERY_BREAKPOINTS } from '../constants';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 const Container = styled.div`
   display:flex;
