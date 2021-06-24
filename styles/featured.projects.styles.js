@@ -17,7 +17,6 @@ const ImageContainer = styled(motion.div)`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   min-height:auto;
-  gap:10px;
   padding-bottom:40px;
   @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     grid-template-columns:repeat(1,1fr);
@@ -31,7 +30,7 @@ const Cover = styled.div`
   left:0;
   width:100%;
   height:0;
-  background-color:rgba(0, 0, 0, 0.95);
+  background-color:rgba(0, 0, 0, 0.8);
   transition:height 0.3s ease;
 `;
 

@@ -7,6 +7,7 @@ import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';
 import styles from '../styles/Home.module.scss';
 import { motion } from 'framer-motion';
 import { PROJECTS_CONTENT_TYPE } from '../constants';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -45,6 +46,10 @@ export default function Home({ c_projects }) {
 
   return (
     <Container>
+      <Head>
+        <title>Архитектурная компания Asimmetriya</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <HeaderComponent />
       <VscChevronLeft className={ styles.arrowLeft } onClick={ prevSlide } />
       <VscChevronRight className={ styles.arrowRight } onClick={ nextSlide } />

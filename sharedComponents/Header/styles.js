@@ -9,10 +9,11 @@ const Container = styled.div`
   display: flex;
   flex-direction:row;
   justify-content:center;
-  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.1)' : 'transparent'};
+  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'transparent'};
   z-index:1000;
   height: ${HEADER_HEIGHT};
   width:100%;
+  border-bottom: ${props => props && props.pathName === '/' ? 'none' : 'solid 1px gray'};
 `;
 
 const Content = styled.div`
@@ -41,12 +42,12 @@ flex: 0.4;
 height: 100%;
 padding:3px;
 & > img {
-  width: 100px;
+  width: 200px;
 }
 
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   img {
-    width: 50px;
+    width: 100px;
   }
   align-items: center;
   width:100%;

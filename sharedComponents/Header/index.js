@@ -30,7 +30,7 @@ export const HeaderComponent = () => {
       <Content openMenu={ openMenu } pathName={ pathName }>
         <Logo>
           <Link href={ "/" }>
-            <img src="https://res.cloudinary.com/nzmai/image/upload/v1624341106/assimetriya-project/logo_osnova.png" />
+            <img src="https://res.cloudinary.com/nzmai/image/upload/v1624526796/assimetriya-project/logo.svg" />
           </Link>
           <Media queries={ { small: `(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile})` } }>{ matches => matches.small && callMatches(matches.small) }</Media>
         </Logo>
