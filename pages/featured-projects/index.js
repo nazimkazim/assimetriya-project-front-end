@@ -18,7 +18,8 @@ export async function getStaticProps() {
   return {
     props: {
       c_projects: res.items
-    }
+    },
+    revalidate: 1
   };
 }
 
