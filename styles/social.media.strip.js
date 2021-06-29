@@ -7,6 +7,7 @@ export const Strip = styled.div`
   align-items:center;
   width:100%;
   min-height:50px;
+  margin-top:${props => props.marginTop && props.marginTop};
 `;
 
 export const Circle = styled.div`

@@ -36,6 +36,11 @@
   transform: scale(1.8);
 }
 
+.map {
+  width:100%;
+  height: 400px;
+}
+
 @media (max-width: 480px) {
   .arrowLeft {
     left:10px;

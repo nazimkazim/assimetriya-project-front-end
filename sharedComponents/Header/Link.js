@@ -14,8 +14,8 @@ export const Links = [
     link: '/about-us',
     id: uuidv4()
   }, {
-    name: 'contact',
-    link: '/contact',
+    name: 'contacts',
+    link: '/contacts',
     id: uuidv4()
   }
 ];

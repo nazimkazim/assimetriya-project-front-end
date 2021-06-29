@@ -55,7 +55,7 @@ export default function Home({ c_projects }) {
       <VscChevronLeft className={ styles.arrowLeft } onClick={ prevSlide } />
       <VscChevronRight className={ styles.arrowRight } onClick={ nextSlide } />
       <ImageContainer>
-        { c_projects.map((slide, index) => {
+        { c_projects && c_projects.map((slide, index) => {
           return (
             <div key={ index }>
               { index === current && (
@@ -67,12 +67,13 @@ export default function Home({ c_projects }) {
                     duration: 0.5
                   } }
                 >
-                  <Image
+                  { slide.fields.mainPicture.fields && <Image
                     src={ `https:${slide.fields.mainPicture.fields.file.url}` }
                     alt={ slide.name }
                     layout="fill"
                     objectFit="cover"
-                  />
+                  /> }
+
                 </motion.div>
               )
               }
