@@ -14,6 +14,10 @@ const Container = styled.div`
   height: ${HEADER_HEIGHT};
   width:100%;
   border-bottom: ${props => props && props.pathName === '/' ? 'none' : 'solid 1px gray'};
+  @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
+    align-items:center;
+  }
+
 `;
 
 const Content = styled.div`
@@ -26,10 +30,11 @@ const Content = styled.div`
   @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     display: flex;
     flex-direction:column;
-    justify-content:flex-start;
+    justify-content:center;
     width: 100%;
     transition:height 0.8s;
     height:${props => props.openMenu ? '100vh' : '10vh'};
+    transform:${props => props.openMenu ? 'translateY(290px)' : 'translateY(0px)'};
   }
 `;
 
@@ -66,12 +71,14 @@ flex: 0.6;
 height: 100%;
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
+  margin-top:30px;
   display:${props => props.openMenu ? 'flex' : 'none'};
   transition:display 0.8s 1s;
   width:100%;
   background-color:${props => props && props.pathName === '/' ? 'transparent' : 'white'};
   flex: 1;
+  align-items:center;
 }
 `;
 
@@ -87,6 +94,9 @@ border-bottom:${({ chosen }) => chosen ? '1px solid gray' : ''};
 transition: background-color 0.8s;
   &: hover {
   background-color: rgba(0, 0, 0, 0.3);
+}
+@media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
+  margin-bottom:30px;
 }
 `;
 
