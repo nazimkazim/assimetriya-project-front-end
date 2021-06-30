@@ -11,7 +11,7 @@ export default async function (req, res) {
   `;
   const data = {
     to: 'info@asimmetriya.kz',
-    from: 'info@asimmetriya.kz',
+    from: body.email,
     subject: 'New message',
     text: message,
     html: message.replace(/\r\n/g, '<br>')
