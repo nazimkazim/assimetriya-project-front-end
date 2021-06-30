@@ -9,7 +9,7 @@ const MapComponent = () => {
         <Map
           height='100%'
           width='100%'
-          defaultState={ { center: [43.260147, 76.956882], zoom: 20 } }
+          defaultState={ { center: [43.260147, 76.956882], zoom: 18 } }
           balloon={ "true" }
         >
           <Placemark

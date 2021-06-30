@@ -7,6 +7,7 @@ import { SocialMediaStrip } from '../../sharedComponents/SocialMediaStrip';
 import { ADDRESS_CONTENT_TYPE } from '../../constants';
 import { createClient } from 'contentful';
 import ContactForm from '../../sharedComponents/ContactForm';
+import { useState } from 'react';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -25,17 +26,26 @@ export async function getStaticProps() {
 }
 
 const Contacts = ({ data }) => {
+  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+
+  console.log(name, email, message);
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const formData = {};
-    Array.from(e.currentTarget.elements).forEach(field => {
-      if (!field.name) return;
-      formData[field.name] = field.value;
-    });
+    const formData = {
+      message,
+      email,
+      name
+    };
     fetch('/api/mail', {
       method: 'post',
       body: JSON.stringify(formData)
     });
+    setMessage('');
+    setEmail('');
+    setName('');
   };
   return (
     <Container>
@@ -51,7 +61,15 @@ const Contacts = ({ data }) => {
             )) : '' }
           </OneSecondSection>
           <OneSecondSection>
-            <ContactForm handleOnSubmit={ handleOnSubmit } />
+            <ContactForm
+              handleOnSubmit={ handleOnSubmit }
+              setMessage={ setMessage }
+              setEmail={ setEmail }
+              setName={ setName }
+              message={ message }
+              email={ email }
+              name={ name }
+            />
           </OneSecondSection>
         </AddressAndFormContainer>
       </ContactInfoContainer>

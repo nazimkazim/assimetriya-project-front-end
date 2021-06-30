@@ -10,8 +10,8 @@ export default async function (req, res) {
     Message:${body.message}
   `;
   const data = {
-    to: 'nazimturdiyev@gmail.com',
-    from: 'nazik_111@mail.ru',
+    to: 'info@asimmetriya.kz',
+    from: 'info@asimmetriya.kz',
     subject: 'New message',
     text: message,
     html: message.replace(/\r\n/g, '<br>')
