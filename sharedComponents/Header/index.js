@@ -9,10 +9,21 @@ import { useRouter } from 'next/router';
 
 export const HeaderComponent = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(null);
   const path = useRouter();
   const pathName = path.pathname;
 
   useEffect(() => { return () => { }; }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [openMenu]);
 
   const callMatches = (matches) => {
     if (matches) {
@@ -25,10 +36,16 @@ export const HeaderComponent = () => {
     return;
   };
 
+  console.log(windowHeight);
+
   return (
     <Container pathName={ pathName }>
-      <Content openMenu={ openMenu } pathName={ pathName }>
-        <Logo>
+      <Content
+        openMenu={ openMenu }
+        pathName={ pathName }
+        windowHeight={ windowHeight }
+      >
+        <Logo openMenu={ openMenu }>
           <Link href={ "/" }>
             <img src="https://res.cloudinary.com/nzmai/image/upload/v1624526796/assimetriya-project/logo.svg" />
           </Link>

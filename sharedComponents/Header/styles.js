@@ -14,10 +14,6 @@ const Container = styled.div`
   height: ${HEADER_HEIGHT};
   width:100%;
   border-bottom: ${props => props && props.pathName === '/' ? 'none' : 'solid 1px gray'};
-  @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
-    align-items:center;
-  }
-
 `;
 
 const Content = styled.div`
@@ -31,10 +27,10 @@ const Content = styled.div`
     display: flex;
     flex-direction:column;
     justify-content:center;
+    z-index:999;
     width: 100%;
     transition:height 0.8s;
-    height:${props => props.openMenu ? '100vh' : '10vh'};
-    transform:${props => props.openMenu ? 'translateY(290px)' : 'translateY(0px)'};
+    height:${props => props.openMenu ? '100vh' : HEADER_HEIGHT};
   }
 `;
 
@@ -58,6 +54,7 @@ padding:3px;
   width:100%;
   justify-content:space-between;
   flex:0.01;
+  margin-top:${props => props.openMenu ? '27px' : '0px'};
 }
 `;
 
@@ -72,7 +69,7 @@ height: 100%;
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   flex-direction: column;
   justify-content: flex-start;
-  margin-top:30px;
+  padding-top:30px;
   display:${props => props.openMenu ? 'flex' : 'none'};
   transition:display 0.8s 1s;
   width:100%;
