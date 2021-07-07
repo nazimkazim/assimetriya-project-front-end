@@ -48,20 +48,20 @@ padding:3px;
 
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   img {
-    width: 100px;
+    width: 150px;
   }
   align-items: center;
   width:100%;
   justify-content:space-between;
   flex:0.01;
-  margin-top:${props => props.openMenu ? '27px' : '0px'};
+  margin-top:${props => props.openMenu ? '12px' : '0px'};
 }
 `;
 
 const Menu = styled.div`;
 display: flex;
 padding: 3px;
-justify-content: space-between;
+justify-content: flex-end;
 align-items: center;
 flex: 0.6;
 /* background-color: lightblue; */
@@ -82,6 +82,7 @@ height: 100%;
 const LinkItem = styled.li`;
 list-style-type: none;
 text-transform: uppercase;
+margin-left:60px;
 cursor: pointer;
 /* background-color:black; */
 color: ${props => props.pathName === '/' ? 'white' : 'black'};
@@ -94,6 +95,7 @@ transition: background-color 0.8s;
 }
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   margin-bottom:30px;
+  margin-left:0;
 }
 `;
 

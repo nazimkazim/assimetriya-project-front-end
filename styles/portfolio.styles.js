@@ -20,6 +20,10 @@ export const Image = styled.img`
   margin-top:60px;
   width:100%;
   margin-bottom:40px;
+  @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
+    margin-top:10px;
+    margin-bottom:10px;
+  }
 `;
 
 export const ProjectName = styled.h3`
