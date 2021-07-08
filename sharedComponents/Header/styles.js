@@ -3,13 +3,13 @@ import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH, HEADER_HEIGHT } from '../../consta
 
 
 const Container = styled.div`
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   display: flex;
   flex-direction:row;
   justify-content:center;
-  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'transparent'};
+  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'white'};
   z-index:1000;
   height: ${HEADER_HEIGHT};
   width:100%;
