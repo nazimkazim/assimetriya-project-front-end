@@ -1,27 +1,31 @@
-const mail = require('@sendgrid/mail');
+const SparkPost = require('sparkpost');
 
-mail.setApiKey(process.env.SEND_GRID_KEY);
 
-export default async function (req, res) {
-  const body = JSON.parse(req.body);
+export default function (req, res) {
+
+  const client = new SparkPost(process.env.SPARK_POST_KEY);
+  const data = JSON.parse(req.data);
   const message = `
-    Name:${body.name}\r\n
-    Email:${body.email}\r\n
-    Message:${body.message}
+    Name:${data.name}\r\n
+    Email:${data.email}\r\n
+    Message:${data.message}
   `;
-  const data = {
-    to: 'info@asimmetriya.kz',
-    from: body.email,
-    subject: 'New message',
-    text: message,
-    html: message.replace(/\r\n/g, '<br>')
-  };
-  try {
-    await mail.send(data);
-    res.status(200).json({ status: 'Ok' });
-  } catch (error) {
-    console.log(error);
-  }
+  client.transmissions.send({
+    content: {
+      from: 'nazik_111@mail.ru',
+      subject: "test email",
+      html: message
+    },
+    recipients: [{ address: email }]
+  }).then(() => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application-json");
+    res.end(JSON.stringify({ error: null }));
+  }).catch(() => {
+    res.statusCode = 500;
+    res.setHeader("Content-Type", "application-json");
+    res.end(JSON.stringify({ error: 'error sending email' }));
+  });
 };
 
 // webmail.ps.kz
