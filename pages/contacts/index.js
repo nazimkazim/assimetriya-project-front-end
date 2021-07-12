@@ -30,8 +30,6 @@ const Contacts = ({ data }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 
-  console.log(name, email, message);
-
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const formData = {

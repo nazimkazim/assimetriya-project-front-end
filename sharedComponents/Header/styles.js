@@ -49,6 +49,7 @@ padding:3px;
 @media(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
   img {
     width: 150px;
+    margin-left: -18px;
   }
   align-items: center;
   width:100%;

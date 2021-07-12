@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { HeaderComponent } from '../sharedComponents/Header';
 import { Container, ImageContainer } from '../styles/home.page.styles';
 import Image from 'next/image';
@@ -8,6 +8,7 @@ import styles from '../styles/Home.module.scss';
 import { motion } from 'framer-motion';
 import { PROJECTS_CONTENT_TYPE } from '../constants';
 import Head from 'next/head';
+import Loading from '../sharedComponents/Loading';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -27,10 +28,15 @@ export async function getStaticProps() {
 
 export default function Home({ c_projects }) {
   const [current, setCurrent] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const length = c_projects && c_projects.length;
 
-  console.log(c_projects);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
 
 
   if (!Array.isArray(c_projects) || c_projects.length <= 0) {
@@ -47,40 +53,47 @@ export default function Home({ c_projects }) {
 
   return (
     <Container>
-      <Head>
-        <title>Архитектурная компания Asimmetriya</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <HeaderComponent />
-      <VscChevronLeft className={ styles.arrowLeft } onClick={ prevSlide } />
-      <VscChevronRight className={ styles.arrowRight } onClick={ nextSlide } />
-      <ImageContainer>
-        { c_projects && c_projects.map((slide, index) => {
-          return (
-            <div key={ index }>
-              { index === current && (
-                <motion.div
-                  initial={ { opacity: 0.6 } }
-                  animate={ { opacity: 1 } }
-                  transition={ {
-                    delay: 0.3,
-                    duration: 0.5
-                  } }
-                >
-                  { slide.fields.mainPicture.fields && <Image
-                    src={ `https:${slide.fields.mainPicture.fields.file.url}` }
-                    alt={ slide.name }
-                    layout="fill"
-                    objectFit="cover"
-                  /> }
+      { loading ? (
+        <Loading />
+      ) : (
+        <Fragment>
+          <Head>
+            <title>Архитектурная компания Asimmetriya</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <HeaderComponent />
+          <VscChevronLeft className={ styles.arrowLeft } onClick={ prevSlide } />
+          <VscChevronRight className={ styles.arrowRight } onClick={ nextSlide } />
+          <ImageContainer>
+            { c_projects && c_projects.map((slide, index) => {
+              return (
+                <div key={ index }>
+                  { index === current && (
+                    <motion.div
+                      initial={ { opacity: 0.6 } }
+                      animate={ { opacity: 1 } }
+                      transition={ {
+                        delay: 0.3,
+                        duration: 0.5
+                      } }
+                    >
+                      { slide.fields.mainPicture.fields && <Image
+                        src={ `https:${slide.fields.mainPicture.fields.file.url}` }
+                        alt={ slide.name }
+                        layout="fill"
+                        objectFit="cover"
+                      /> }
 
-                </motion.div>
-              )
-              }
-            </div>
-          );
-        }) }
-      </ImageContainer>
+                    </motion.div>
+                  )
+                  }
+                </div>
+              );
+            }) }
+          </ImageContainer>
+        </Fragment>
+      ) }
+
     </Container >
 
   );

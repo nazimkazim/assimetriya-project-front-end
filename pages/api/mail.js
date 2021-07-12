@@ -12,7 +12,7 @@ export default function (req, res) {
   `;
   client.transmissions.send({
     content: {
-      from: 'nazik_111@mail.ru',
+      from: 'info@asimmetriya.kz',
       subject: "test email",
       html: message
     },
@@ -21,7 +21,8 @@ export default function (req, res) {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application-json");
     res.end(JSON.stringify({ error: null }));
-  }).catch(() => {
+  }).catch((e) => {
+    console.log(e);
     res.statusCode = 500;
     res.setHeader("Content-Type", "application-json");
     res.end(JSON.stringify({ error: 'error sending email' }));
