@@ -10,19 +10,29 @@ export const Container = styled.div`
   color:white;
 `;
 
-const scale = keyframes`
+const leftToRight = keyframes`
   from {
-    transform: translateX(-200px);
+    transform: translateX(-1000px);
     opacity:0;
   }
-
   to {
-    transform: translateX(0x);
+    transform: translateX(0px);
     opacity:1;
   }
 `;
 
-const rotate = keyframes`
+const rightToLeft = keyframes`
+  from {
+    transform: translateX(0px);
+    opacity:1;
+  }
+  to {
+    transform: translateX(1000px);
+    opacity:0;
+  }
+`;
+
+/* const rotate = keyframes`
   from {
     transform: rotate(0deg);
   }
@@ -30,12 +40,12 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`; */
 
 export const Logo = styled.img`
   width:300px;
-  animation: ${scale} 1s ease-in-out infinite, ${rotate} 2s ease-in-out;
-  animation-delay: 0s, 1s;
+  animation: ${leftToRight} 1s ease-in-out, ${rightToLeft} 2s ease-in-out;
+  animation-delay:0s, 2s;
 `;
 
 
