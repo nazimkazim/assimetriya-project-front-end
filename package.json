@@ -13,6 +13,7 @@
     "@sendgrid/mail": "^7.4.5",
     "@zeit/next-sass": "^1.0.1",
     "contentful": "^8.4.2",
+    "dotenv": "^10.0.0",
     "file-loader": "^6.2.0",
     "framer-motion": "^4.1.17",
     "next": "10.2.3",

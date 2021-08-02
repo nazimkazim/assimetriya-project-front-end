@@ -9,11 +9,11 @@ const Container = styled.div`
   display: flex;
   flex-direction:row;
   justify-content:center;
-  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'white'};
+  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.001)'};
   z-index:1000;
   height: ${HEADER_HEIGHT};
   width:100%;
-  border-bottom: ${props => props && props.pathName === '/' ? 'none' : 'solid 1px gray'};
+  border-bottom: ${props => props && props.pathName === '/' ? 'none' : 'none'};
 `;
 
 const Content = styled.div`

@@ -10,13 +10,13 @@ export const Container = styled.div`
   color:white;
 `;
 
-const leftToRight = keyframes`
+const appear = keyframes`
   from {
-    transform: translateX(-1000px);
+    transform: scale(0);
     opacity:0;
   }
   to {
-    transform: translateX(0px);
+    transform: scale(1);
     opacity:1;
   }
 `;
@@ -24,27 +24,17 @@ const leftToRight = keyframes`
 const rightToLeft = keyframes`
   from {
     transform: translateX(0px);
-    opacity:1;
+    opacity:0.5;
   }
   to {
-    transform: translateX(1000px);
+    transform: translateY(100px);
     opacity:0;
   }
 `;
 
-/* const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`; */
-
 export const Logo = styled.img`
   width:300px;
-  animation: ${leftToRight} 1s ease-in-out, ${rightToLeft} 2s ease-in-out;
+  animation: ${appear} 1.5s ease-in-out, ${rightToLeft} 1.5s ease-in-out;
   animation-delay:0s, 2s;
 `;
 

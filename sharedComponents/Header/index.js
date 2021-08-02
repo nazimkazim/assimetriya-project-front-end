@@ -47,7 +47,7 @@ export const HeaderComponent = () => {
       >
         <Logo openMenu={ openMenu }>
           <Link href={ "/" }>
-            <img src="https://res.cloudinary.com/nzmai/image/upload/v1624526796/assimetriya-project/logo.svg" />
+            <img src="https://res.cloudinary.com/nzmai/image/upload/v1627899961/assimetriya-project/logo_new.svg" />
           </Link>
           <Media queries={ { small: `(max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile})` } }>{ matches => matches.small && callMatches(matches.small) }</Media>
         </Logo>

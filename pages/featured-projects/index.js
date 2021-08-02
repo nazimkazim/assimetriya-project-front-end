@@ -5,7 +5,6 @@ import FilterStrip from '../../sharedComponents/FilterStrip';
 import Link from 'next/link';
 import { createClient } from 'contentful';
 import { PROJECTS_CONTENT_TYPE } from '../../constants';
-import Loading from '../../sharedComponents/Loading';
 
 
 export async function getStaticProps() {
@@ -28,7 +27,6 @@ const FeaturedPage = ({ c_projects }) => {
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('All');
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   //console.log(c_projects);
 
@@ -44,12 +42,6 @@ const FeaturedPage = ({ c_projects }) => {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
-  useEffect(() => {
     const projects = [...c_projects];
     if (selectedType === 'All') {
       setProjects(projects);
@@ -62,43 +54,42 @@ const FeaturedPage = ({ c_projects }) => {
 
   return (
     <Container>
-      { loading ? (<Loading />) : (
-        <Fragment>
-          <HeaderComponent />
-          <FilterStrip types={ types } setSelectedType={ setSelectedType } selectedType={ selectedType } />
-          <ImageContainer
-            initial={ { x: -100, opacity: 0 } }
-            animate={ {
-              scale: 1,
-              opacity: 1,
-              x: 0,
-              transition: {
-                duration: 1
-              }
-            } }
-          >
-            { projects.length > 0 && projects.map((image) => (
-              <Link href={ `/portfolio/${[image.sys.id]}` }>
-                <ImageItem
-                  initial={ { scale: 0.8, opacity: 0 } }
-                  animate={ {
-                    scale: 1,
-                    opacity: 1,
-                    transition: {
-                      duration: 1.5
-                    }
-                  } }
-                  image={ image.fields.mainPicture.fields.file.url }
-                  key={ image.sys.id }>
-                  <Cover></Cover>
-                  <Name>{ image.fields.title }</Name>
-                  <Type>{ image.fields.projectType }</Type>
-                </ImageItem>
-              </Link>
-            )) }
-          </ImageContainer>
-        </Fragment>
-      ) }
+      <Fragment>
+        <HeaderComponent />
+        <FilterStrip types={ types } setSelectedType={ setSelectedType } selectedType={ selectedType } />
+        <ImageContainer
+          initial={ { x: -100, opacity: 0 } }
+          animate={ {
+            scale: 1,
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 1
+            }
+          } }
+        >
+          { projects.length > 0 && projects.map((image) => (
+            <Link href={ `/portfolio/${[image.sys.id]}` }>
+              <ImageItem
+                initial={ { scale: 0.8, opacity: 0 } }
+                animate={ {
+                  scale: 1,
+                  opacity: 1,
+                  transition: {
+                    duration: 1.5
+                  }
+                } }
+                image={ image.fields.mainPicture.fields.file.url }
+                key={ image.sys.id }>
+                <Cover></Cover>
+                <Name>{ image.fields.title }</Name>
+                <Type>{ image.fields.projectType }</Type>
+              </ImageItem>
+            </Link>
+          )) }
+        </ImageContainer>
+      </Fragment>
+       }
 
     </Container>
   );
