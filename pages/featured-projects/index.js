@@ -89,8 +89,6 @@ const FeaturedPage = ({ c_projects }) => {
           )) }
         </ImageContainer>
       </Fragment>
-       }
-
     </Container>
   );
 };

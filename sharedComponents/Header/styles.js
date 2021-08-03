@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   flex-direction:row;
   justify-content:center;
-  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.001)'};
+  background-color: ${props => props && props.pathName === '/' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.3)'};
   z-index:1000;
   height: ${HEADER_HEIGHT};
   width:100%;
