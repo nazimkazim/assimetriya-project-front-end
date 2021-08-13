@@ -6,6 +6,10 @@ import { ProjectInfoContainer, Image, ProjectName, ProjectLocation, ProjectDescr
 import { SocialMediaStrip } from '../../sharedComponents/SocialMediaStrip';
 import { createClient } from 'contentful';
 import { PROJECTS_CONTENT_TYPE } from "../../constants";
+import styles from '../../styles/Home.module.scss';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 
 
@@ -44,8 +48,6 @@ const Portfolio = ({ c_projects }) => {
     setProject(project);
   }, []);
 
-  console.log(project);
-
   return (
     <Container>
       <HeaderComponent />
@@ -57,13 +59,17 @@ const Portfolio = ({ c_projects }) => {
           src={ project && project.fields && project.fields.mainPicture.fields.file.url }
           alt={ project && project.fields && project.fields.title }
         />
-        { project && project.fields && project.fields.galleries && project.fields.galleries.length > 0 && project.fields.galleries.map(item => (
-          <Image
-            src={ item.fields.file.url }
-            alt={ item.fields.id }
-            key={ item.fields.id }
-          />
-        )) }
+        { project && project.fields && project.fields.galleries && project.fields.galleries.length > 0 && project.fields.galleries.map(item => {
+          //console.log(item);
+          return <LazyLoadImage
+            className={ styles.portFolioImage }
+            height='auto'
+            key={ item.sys.id }
+            src={ item.fields.file.url } // use normal <img> attributes as props
+            width='100%'
+            effect="blur"
+          />;
+        }) }
         <SocialMediaStrip />
       </ProjectInfoContainer>
     </Container>

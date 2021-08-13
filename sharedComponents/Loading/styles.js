@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 const appear = keyframes`
   from {
-    transform: scale(0);
+    transform: scale(0.98);
     opacity:0;
   }
   to {
@@ -21,21 +21,9 @@ const appear = keyframes`
   }
 `;
 
-const rightToLeft = keyframes`
-  from {
-    transform: translateX(0px);
-    opacity:0.5;
-  }
-  to {
-    transform: translateY(100px);
-    opacity:0;
-  }
-`;
-
 export const Logo = styled.img`
   width:300px;
-  animation: ${appear} 1.5s ease-in-out, ${rightToLeft} 1.5s ease-in-out;
-  animation-delay:0s, 2s;
+  animation: ${appear} 3s ease-in-out;
 `;
 
 
