@@ -5,7 +5,7 @@ import FilterStrip from '../../sharedComponents/FilterStrip';
 import Link from 'next/link';
 import { createClient } from 'contentful';
 import { PROJECTS_CONTENT_TYPE } from '../../constants';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export async function getStaticProps() {
   const client = createClient({
