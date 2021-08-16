@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH, HEADER_HEIGHT } from '../../constants';
+import { MEDIA_QUERY_BREAKPOINTS, MAIN_WIDTH, HEADER_WIDTH, HEADER_HEIGHT } from '../../constants';
 
 
 const Container = styled.div`
@@ -21,7 +21,7 @@ const Content = styled.div`
   height:100%;
   justify-content: center;
   align-items: center;
-  width: ${MAIN_WIDTH};
+  width: ${HEADER_WIDTH};
   /* background-color: blue; */
   @media (max-width: ${MEDIA_QUERY_BREAKPOINTS.mobile}) {
     display: flex;
