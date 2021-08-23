@@ -68,7 +68,7 @@ const Portfolio = ({ c_projects }) => {
             src={ item.fields.file.url } // use normal <img> attributes as props
             width='100%'
             effect="blur"
-            placeholderSrc={ "/logo_new.svg" }
+            placeholderSrc={ "https://res.cloudinary.com/nzmai/image/upload/v1627899961/assimetriya-project/logo_new.svg" }
           />;
         }) }
         <SocialMediaStrip />
