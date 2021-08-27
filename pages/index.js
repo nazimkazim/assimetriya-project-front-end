@@ -6,7 +6,7 @@ import { createClient } from 'contentful';
 import { VscChevronRight, VscChevronLeft } from 'react-icons/vsc';
 import styles from '../styles/Home.module.scss';
 import { motion } from 'framer-motion';
-import { PROJECTS_CONTENT_TYPE } from '../constants';
+import { FRONT_PAGE_IMAGE_CONTENT_TYPE } from '../constants';
 import Head from 'next/head';
 import Loading from '../sharedComponents/Loading';
 
@@ -16,7 +16,7 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY
   });
 
-  const res = await client.getEntries({ content_type: PROJECTS_CONTENT_TYPE });
+  const res = await client.getEntries({ content_type: FRONT_PAGE_IMAGE_CONTENT_TYPE });
 
   return {
     props: {
@@ -37,6 +37,8 @@ export default function Home({ c_projects }) {
       setLoading(false);
     }, 3000);
   }, []);
+
+  console.log(c_projects);
 
 
   if (!Array.isArray(c_projects) || c_projects.length <= 0) {
@@ -80,8 +82,8 @@ export default function Home({ c_projects }) {
                         duration: 0.5
                       } }
                     >
-                      { slide.fields.mainPicture.fields && <Image
-                        src={ `https:${slide.fields.mainPicture.fields.file.url}` }
+                      { slide.fields.image.fields && <Image
+                        src={ `https:${slide.fields.image.fields.file.url}` }
                         alt={ slide.name }
                         layout="fill"
                         objectFit="cover"

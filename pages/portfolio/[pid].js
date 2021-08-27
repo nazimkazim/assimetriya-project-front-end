@@ -59,18 +59,22 @@ const Portfolio = ({ c_projects }) => {
           src={ project && project.fields && project.fields.mainPicture.fields.file.url }
           alt={ project && project.fields && project.fields.title }
         />
-        { project && project.fields && project.fields.galleries && project.fields.galleries.length > 0 && project.fields.galleries.map(item => {
-          //console.log(item);
-          return <LazyLoadImage
-            className={ styles.portFolioImage }
-            height='auto'
-            key={ item.sys.id }
-            src={ item.fields.file.url } // use normal <img> attributes as props
-            width='100%'
-            effect="blur"
-            placeholderSrc={ "https://res.cloudinary.com/nzmai/image/upload/v1627899961/assimetriya-project/logo_new.svg" }
-          />;
-        }) }
+        { project &&
+          project.fields &&
+          project.fields.galleries &&
+          project.fields.galleries.length > 0 &&
+          project.fields.galleries.map(item => {
+            //console.log(item);
+            return <LazyLoadImage
+              className={ styles.portFolioImage }
+              minHeight='400px'
+              key={ item.sys.id }
+              src={ item.fields.file.url } // use normal <img> attributes as props
+              width='100%'
+              effect="blur"
+              placeholderSrc={ "https://res.cloudinary.com/nzmai/image/upload/v1629112359/assimetriya-project/logo_new_white.svg" }
+            />;
+          }) }
         <SocialMediaStrip />
       </ProjectInfoContainer>
     </Container>

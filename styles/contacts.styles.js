@@ -7,7 +7,7 @@ export const Title = styled.h1`
   text-align:center;
   font-weight:normal;
   text-transform:uppercase;
-  font-size:60px;
+  font-size:26px;
 `;
 
 export const ContactInfoContainer = styled.div`
