@@ -38,9 +38,6 @@ export default function Home({ c_projects }) {
     }, 3000);
   }, []);
 
-  console.log(c_projects);
-
-
   if (!Array.isArray(c_projects) || c_projects.length <= 0) {
     return null;
   }

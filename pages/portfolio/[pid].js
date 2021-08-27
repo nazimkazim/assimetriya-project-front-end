@@ -3,7 +3,7 @@ import { HeaderComponent } from '../../sharedComponents/Header/index';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import { ProjectInfoContainer, Image, ProjectName, ProjectLocation, ProjectDescription } from '../../styles/portfolio.styles';
-import { SocialMediaStrip } from '../../sharedComponents/SocialMediaStrip';
+import SocialMediaStrip from '../../sharedComponents/SocialMediaStrip';
 import { createClient } from 'contentful';
 import { PROJECTS_CONTENT_TYPE } from "../../constants";
 import styles from '../../styles/Home.module.scss';
@@ -67,7 +67,7 @@ const Portfolio = ({ c_projects }) => {
             //console.log(item);
             return <LazyLoadImage
               className={ styles.portFolioImage }
-              minHeight='400px'
+              minheight='400px'
               key={ item.sys.id }
               src={ item.fields.file.url } // use normal <img> attributes as props
               width='100%'

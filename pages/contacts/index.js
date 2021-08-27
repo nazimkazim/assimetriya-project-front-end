@@ -3,7 +3,7 @@ import { HeaderComponent } from '../../sharedComponents/Header/index';
 import { AddressAndFormContainer, OneSecondSection, Title, Item } from '../../styles/contacts.styles';
 import { ContactInfoContainer } from '../../styles/contacts.styles';
 import Map from '../../sharedComponents/Map';
-import { SocialMediaStrip } from '../../sharedComponents/SocialMediaStrip';
+import SocialMediaStrip from '../../sharedComponents/SocialMediaStrip';
 import { ADDRESS_CONTENT_TYPE } from '../../constants';
 import { createClient } from 'contentful';
 import ContactForm from '../../sharedComponents/ContactForm';
@@ -54,9 +54,10 @@ const Contacts = ({ data }) => {
         <SocialMediaStrip marginTop="40px" />
         <AddressAndFormContainer>
           <OneSecondSection>
-            { data.length > 0 ? data[0].fields.address.content[0].content.map(item => (
-              <Item>{ item.content[0].content[0].value }</Item>
-            )) : '' }
+            { data.length > 0 ? data[0].fields.address.content[0].content.map((item, index) => {
+
+              return <Item key={ index }>{ item.content[0].content[0].value }</Item>;
+            }) : '' }
           </OneSecondSection>
           <OneSecondSection>
             <ContactForm

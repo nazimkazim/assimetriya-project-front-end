@@ -10,7 +10,7 @@ export const Strip = styled.div`
   margin-top:${props => props.marginTop && props.marginTop};
 `;
 
-export const Circle = styled.div`
+export const Circle = styled.a`
   display:flex;
   margin-right:10px;
   justify-content:center;

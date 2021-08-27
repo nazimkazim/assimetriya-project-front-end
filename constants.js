@@ -12,3 +12,4 @@ export const FRONT_PAGE_IMAGE_CONTENT_TYPE = 'frontPageImage';
 export const PROJECTS_CONTENT_TYPE = 'title';
 export const ABOUT_US_CONTENT_TYPE = 'aboutUs';
 export const ADDRESS_CONTENT_TYPE = 'addressAsimetriya';
+export const SOCIAL_MEDIA_CONTENT_TYPE = 'socialMedia';

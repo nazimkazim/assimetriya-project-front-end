@@ -36,8 +36,6 @@ export const HeaderComponent = () => {
     return;
   };
 
-  console.log(windowHeight);
-
   return (
     <Container pathName={ pathName }>
       <Content

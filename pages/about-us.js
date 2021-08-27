@@ -31,13 +31,13 @@ const AboutUs = ({ aboutUs }) => {
         <ProjectDescription>
           { aboutUs[0].fields.description.content[0].content[0].value }
         </ProjectDescription>
-        { aboutUs[0] && aboutUs[0].fields && aboutUs[0].fields.gallery && aboutUs[0].fields.gallery.length > 0 && aboutUs[0].fields.gallery.map(item => (
-          <Image
+        { aboutUs[0] && aboutUs[0].fields && aboutUs[0].fields.gallery && aboutUs[0].fields.gallery.length > 0 && aboutUs[0].fields.gallery.map(item => {
+          return <Image
             src={ item.fields.file.url }
-            alt={ item.fields.id }
-            key={ item.fields.id }
-          />
-        )) }
+            alt={ item.sys.id }
+            key={ item.sys.id }
+          />;
+        }) }
       </ProjectInfoContainer>
 
     </Container>
